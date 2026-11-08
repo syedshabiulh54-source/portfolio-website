@@ -1,0 +1,2039 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Shabi ul Hassan — Aspiring Data Scientist</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* 
+         * VIBRANT EDITORIAL 3D DESIGN SYSTEM
+         * Rich Dark Slate, Electric Cyan, Purple & Emerald Accents
+         */
+        :root {
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --bg-dark: #070D19;
+            
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --text-muted: #64748B;
+            
+            --cyan-accent: #06B6D4;
+            --cyan-glow: #0284C7;
+            --purple-accent: #A855F7;
+            --emerald-accent: #10B981;
+            --pink-accent: #EC4899;
+            
+            --grad-primary: linear-gradient(135deg, #06B6D4 0%, #3B82F6 50%, #8B5CF6 100%);
+            --grad-text-3d: linear-gradient(180deg, #FFFFFF 0%, #38BDF8 60%, #0284C7 100%);
+            --grad-card-3d: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
+            
+            --border-glow: rgba(56, 189, 248, 0.25);
+            --border-light: rgba(255, 255, 255, 0.1);
+            
+            --font-head: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+            
+            --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --header-height: 75px;
+            
+            --shadow-3d: 0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.15);
+            --shadow-btn-3d: 0 8px 20px -4px rgba(6, 182, 212, 0.4), inset 0 2px 0 rgba(255, 255, 255, 0.3);
+        }
+
+        /* Light Mode Theme Overrides */
+        html.light {
+            --bg-primary: #F1F5F9;
+            --bg-secondary: #FFFFFF;
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --bg-dark: #0F172A;
+            
+            --text-primary: #0F172A;
+            --text-secondary: #475569;
+            --text-muted: #94A3B8;
+            
+            --grad-text-3d: linear-gradient(180deg, #0F172A 0%, #0284C7 70%, #4F46E5 100%);
+            --grad-card-3d: linear-gradient(145deg, #FFFFFF, #F8FAFC);
+            
+            --border-glow: rgba(2, 132, 199, 0.2);
+            --border-light: rgba(0, 0, 0, 0.08);
+            
+            --shadow-3d: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 0 15px rgba(2, 132, 199, 0.1);
+        }
+
+        /* Base Setup */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.65;
+            overflow-x: hidden;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        ::selection {
+            background-color: var(--cyan-accent);
+            color: #0F172A;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 3D Dynamic Headlines & Section Titles */
+        .section-header {
+            padding: 5rem 0 2.5rem 0;
+            border-top: 1px solid var(--border-light);
+            margin-top: 4rem;
+            position: relative;
+        }
+
+        .section-number {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--cyan-accent);
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+        }
+
+        .section-title-3d {
+            font-family: var(--font-head);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            background: var(--grad-text-3d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            filter: drop-shadow(0 6px 12px rgba(2, 132, 199, 0.3));
+        }
+
+        .mono-tag {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--cyan-accent);
+            background: rgba(6, 182, 212, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        /* 3D ELEVATED CARD STYLING */
+        .card-3d {
+            background: var(--grad-card-3d);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-3d);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--grad-primary);
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .card-3d:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 30px 50px -15px rgba(6, 182, 212, 0.3), 0 0 30px rgba(139, 92, 246, 0.2);
+            border-color: rgba(56, 189, 248, 0.6);
+        }
+
+        /* 3D ACTION BUTTONS */
+        .btn-3d {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.95rem 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-decoration: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            border: none;
+            outline: none;
+        }
+
+        .btn-3d-primary {
+            background: var(--grad-primary);
+            color: #FFFFFF;
+            box-shadow: var(--shadow-btn-3d);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .btn-3d-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 28px -4px rgba(6, 182, 212, 0.6), inset 0 2px 0 rgba(255, 255, 255, 0.5);
+            filter: brightness(1.1);
+        }
+
+        .btn-3d-primary:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 10px rgba(6, 182, 212, 0.4);
+        }
+
+        .btn-3d-outline {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-3d-outline:hover {
+            border-color: var(--cyan-accent);
+            color: var(--cyan-accent);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.3);
+            background: rgba(6, 182, 212, 0.08);
+        }
+
+        /* INTERACTIVE 3D SOCIAL LOGO BADGES */
+        .social-badges-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-logo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.85rem 1.4rem;
+            border-radius: 12px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glow);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-logo-btn i {
+            font-size: 1.3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-logo-btn.linkedin i { color: #0A66C2; }
+        .social-logo-btn.github i { color: #F0F6FC; }
+        .social-logo-btn.whatsapp i { color: #25D366; }
+        .social-logo-btn.gmail i { color: #EA4335; }
+
+        html.light .social-logo-btn.github i { color: #0F172A; }
+
+        .social-logo-btn:hover {
+            transform: translateY(-5px) scale(1.04);
+            box-shadow: 0 14px 28px rgba(6, 182, 212, 0.35);
+            border-color: var(--cyan-accent);
+            background: var(--bg-primary);
+        }
+
+        .social-logo-btn:hover i {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: var(--transition-smooth);
+        }
+
+        html.light .navbar {
+            background-color: rgba(241, 245, 249, 0.88);
+        }
+
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .brand-logo {
+            font-family: var(--font-head);
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.01em;
+            text-decoration: none;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .brand-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--grad-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--cyan-accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-secondary);
+            transition: color 0.25 ease;
+            position: relative;
+            padding: 0.3rem 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--cyan-accent);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--grad-primary);
+            box-shadow: 0 0 8px var(--cyan-accent);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--cyan-accent);
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.08) rotate(15deg);
+            border-color: var(--cyan-accent);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--text-primary);
+            position: absolute;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 10px; }
+        .hamburger span:nth-child(3) { top: 20px; }
+
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 10px; }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); top: 10px; }
+
+        /* HERO SECTION */
+        .hero-section {
+            padding-top: calc(var(--header-height) + 3.5rem);
+            padding-bottom: 5rem;
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        /* Subtle Background Glow Spheres */
+        .hero-glow-bg {
+            position: absolute;
+            top: 20%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-glow-bg-2 {
+            position: absolute;
+            bottom: 10%;
+            right: -5%;
+            width: 550px;
+            height: 550px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero-top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1.2rem;
+            margin-bottom: 3.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            color: var(--emerald-accent);
+        }
+
+        .status-dot {
+            width: 9px;
+            height: 9px;
+            background-color: var(--emerald-accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald-accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 7fr 5fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        /* Hero 3D Typography */
+        .hero-title-3d {
+            font-family: var(--font-head);
+            font-size: clamp(3.2rem, 7.5vw, 6.2rem);
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -0.04em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            background: var(--grad-text-3d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 10px 20px rgba(6, 182, 212, 0.25));
+        }
+
+        .hero-subtitle-box {
+            border-left: 4px solid var(--cyan-accent);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-mono);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--cyan-accent);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-bio {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            line-height: 1.75;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Profile Visual Frame */
+        .profile-card-3d {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+       .profile-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.real-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 12px;
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+/* Editorial subtle contrast effect on hover */
+.profile-card-3d:hover .real-profile-img {
+    transform: scale(1.03);
+    filter: brightness(1.05) contrast(1.05);
+}
+
+        .profile-placeholder-svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-card-footer {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* ABOUT ME SECTION */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            gap: 4rem;
+        }
+
+        .about-text-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.08rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .quote-box-3d {
+            background: rgba(6, 182, 212, 0.05);
+            border: 1px solid var(--border-glow);
+            border-left: 5px solid var(--cyan-accent);
+            border-radius: 12px;
+            padding: 2.2rem;
+            margin: 2.2rem 0;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote-text {
+            font-family: var(--font-head);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .value-card-3d {
+            padding: 1.8rem;
+        }
+
+        .value-card-3d h4 {
+            font-family: var(--font-head);
+            font-size: 1.15rem;
+            color: var(--cyan-accent);
+            margin-bottom: 0.6rem;
+        }
+
+        .value-card-3d p {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+        }
+
+        /* SKILLS SECTION */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .skill-category-card {
+            padding: 2.2rem;
+        }
+
+        .skill-category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .skill-category-title {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-family: var(--font-head);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag-3d {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            padding: 0.55rem 1.1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            border-radius: 8px;
+            color: var(--text-primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: var(--transition-smooth);
+            cursor: default;
+        }
+
+        .skill-tag-3d:hover {
+            background: var(--cyan-accent);
+            color: #0F172A;
+            font-weight: 600;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.4);
+            border-color: var(--cyan-accent);
+        }
+
+        /* PROJECTS SECTION */
+        .projects-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .project-card-3d {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .project-info {
+            padding: 3.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-number {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--purple-accent);
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .project-title {
+            font-size: 2.2rem;
+            font-family: var(--font-head);
+            margin-bottom: 1.2rem;
+            background: var(--grad-text-3d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .project-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .tech-pill {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 6px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--purple-accent);
+            text-transform: uppercase;
+        }
+
+        .project-visual {
+            background-color: var(--bg-dark);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem;
+            min-height: 340px;
+        }
+
+        .project-preview-mockup {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            padding: 1.8rem;
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .mockup-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .mockup-dot:nth-child(1) { background-color: #EF4444; }
+        .mockup-dot:nth-child(2) { background-color: #F59E0B; }
+        .mockup-dot:nth-child(3) { background-color: #10B981; }
+
+        .mockup-body {
+            flex: 1;
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--cyan-accent);
+            line-height: 1.65;
+            white-space: pre-wrap;
+            overflow: hidden;
+        }
+
+        /* EDUCATION SECTION */
+        .timeline-3d {
+            border-left: 3px solid var(--border-glow);
+            margin-left: 1rem;
+            padding-left: 2.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            position: relative;
+        }
+
+        .timeline-item-3d {
+            position: relative;
+            padding: 2.5rem;
+        }
+
+        .timeline-item-3d::before {
+            content: '';
+            position: absolute;
+            left: calc(-2.8rem - 11px);
+            top: 2rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--cyan-accent);
+            box-shadow: 0 0 15px var(--cyan-accent);
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-date {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            color: var(--cyan-accent);
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .timeline-degree {
+            font-size: 1.7rem;
+            font-family: var(--font-head);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-institution {
+            font-family: var(--font-mono);
+            font-size: 1.05rem;
+            color: var(--purple-accent);
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* CERTIFICATIONS SECTION */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 2.2rem;
+        }
+
+        .cert-card-3d {
+            padding: 2.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cert-provider {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--cyan-accent);
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .cert-title {
+            font-size: 1.4rem;
+            font-family: var(--font-head);
+            margin-bottom: 1rem;
+        }
+
+        .cert-meta {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-light);
+            padding-top: 1.2rem;
+            margin-top: 1.8rem;
+        }
+
+        /* LEARNING JOURNEY */
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .journey-card-3d {
+            padding: 2.2rem;
+        }
+
+        .journey-step {
+            font-family: var(--font-mono);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--grad-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.8rem;
+        }
+
+        /* CONTACT SECTION & FORM */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 4rem;
+        }
+
+        .contact-info-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info-item h5 {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--cyan-accent);
+            margin-bottom: 0.4rem;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-info-item p, .contact-info-item a {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info-item a:hover {
+            color: var(--cyan-accent);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-label {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            letter-spacing: 0.05em;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 1.1rem 1.3rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-glow);
+            background-color: var(--bg-card);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition-smooth);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            border-color: var(--cyan-accent);
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.3), inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 160px;
+        }
+
+        .form-status {
+            font-family: var(--font-mono);
+            font-size: 0.88rem;
+            padding: 1rem 1.2rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .form-status.success {
+            display: block;
+            background-color: rgba(16, 185, 129, 0.15);
+            border: 1px solid #10B981;
+            color: #10B981;
+        }
+
+        .form-status.error {
+            display: block;
+            background-color: rgba(239, 68, 68, 0.15);
+            border: 1px solid #EF4444;
+            color: #EF4444;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 1px solid var(--border-light);
+            padding: 5rem 0 2.5rem 0;
+            margin-top: 6rem;
+            background-color: var(--bg-dark);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 6fr 6fr;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand h2 {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            background: var(--grad-text-3d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-brand p {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-light);
+            padding-top: 2rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* MODAL POPUP FOR CASE STUDIES */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(7, 13, 25, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content-3d {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 720px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 3.2rem;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.8rem;
+            right: 1.8rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-smooth);
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: var(--cyan-accent);
+            border-color: var(--cyan-accent);
+        }
+
+        /* REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            .hero-grid, .about-grid, .contact-grid, .project-card-3d {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                height: calc(100vh - var(--header-height));
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 3rem 2rem;
+                gap: 1.8rem;
+                transform: translateX(-100%);
+                transition: transform 0.35s ease-in-out;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-link {
+                font-size: 1.15rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-nav {
+                justify-content: flex-start;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title-3d {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container navbar-inner">
+            <a href="#home" class="brand-logo">
+                <span class="brand-dot"></span>
+                SYED SHABI UL HASSAN
+            </a>
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                    <li><a href="#journey" class="nav-link">Journey</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Mobile Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section">
+        <div class="hero-glow-bg"></div>
+        <div class="hero-glow-bg-2"></div>
+
+        <div class="container">
+            <div class="hero-top-bar reveal">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span>Available for Internships & Collaborations</span>
+                </div>
+                <div>PAKISTAN / PAF-IAST CAMPUS</div>
+            </div>
+
+            <div class="hero-grid">
+                <div class="reveal">
+                    <h1 class="hero-title-3d">
+                        SYED SHABI<br>UL HASSAN.
+                    </h1>
+                    
+                    <div class="hero-subtitle-box">
+                        <div class="hero-subtitle">ASPIRING DATA SCIENTIST</div>
+                        <div class="mono-tag">BS DATA SCIENCE STUDENT</div>
+                    </div>
+
+                    <p class="hero-bio">
+                        I am a Data Science student passionate about transforming raw data into meaningful insights, developing intelligent solutions, and exploring cutting-edge machine learning models.
+                    </p>
+
+                    <!-- Interactive Action Buttons -->
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn-3d btn-3d-primary">
+                            Explore Work <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button class="btn-3d btn-3d-outline" id="download-cv-btn">
+                            Download CV <i class="fa-solid fa-file-arrow-down"></i>
+                        </button>
+                    </div>
+
+                    <!-- Enhanced 3D Social Logo Buttons -->
+                    <div style="margin-top: 2.2rem;">
+                        <span class="form-label" style="display:block; margin-bottom: 0.8rem;">Direct Profiles & Reach:</span>
+                        <div class="social-badges-wrapper">
+                            <a href="https://www.linkedin.com/in/syed-shabi-ul-hassan-0717543ab/" target="_blank" rel="noopener noreferrer" class="social-logo-btn linkedin">
+                                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/syedshabiulh54-source" target="_blank" rel="noopener noreferrer" class="social-logo-btn github">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="https://wa.me/+923350547778?text=Hi%20Syed%20Shabi,%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="social-logo-btn whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="mailto:syedshabiulhassan54@gmail.com" class="social-logo-btn gmail">
+                                <i class="fa-solid fa-envelope"></i> Gmail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Profile Frame -->
+<div class="card-3d profile-card-3d reveal">
+    <div class="profile-img-wrapper">
+        <img src="profile.jpg" alt="Syed Shabi ul Hassan - Aspiring Data Scientist" class="real-profile-img">
+    </div>
+    <div class="profile-card-footer">
+        <span>SYS.ID // 071754</span>
+        <span>LOC // PAKISTAN</span>
+    </div>
+</div>
+    </section>
+
+    <!-- SECTION 01: ABOUT ME -->
+    <section id="about" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">01 /</span>
+            <h2 class="section-title-3d">ABOUT ME</h2>
+        </div>
+
+        <div class="about-grid">
+            <div class="about-text-content reveal">
+                <p>
+                    I am an undergraduate student pursuing a <strong>Bachelor of Science in Data Science</strong> at the <em>Pakistan-Austria Fachhochschule: Institute of Applied Sciences and Technology (PAF-IAST)</em>. My academic journey is centered around understanding structured and unstructured data to extract meaningful analytics and predictive insights.
+                </p>
+                <p>
+                    From foundational programming practice in Python and C++ to exploring machine learning frameworks and database platforms, my core goal is to bridge software engineering with statistical intelligence.
+                </p>
+                
+                <div class="quote-box-3d">
+                    <p class="quote-text">
+                        "Turning data into insights. Turning ideas into intelligent solutions."
+                    </p>
+                </div>
+
+                <p>
+                    I am actively refining my proficiency in predictive modeling, computer vision, data visualization, and database operations, seeking to build scalable solutions for real-world application.
+                </p>
+            </div>
+
+            <div class="reveal">
+                <span class="mono-tag" style="margin-bottom: 1.5rem; display:inline-block;">Core Principles</span>
+                <div class="values-grid">
+                    <div class="card-3d value-card-3d">
+                        <h4>Analytical Rigor</h4>
+                        <p>Delving deep into statistics and algorithms to ensure numerical integrity and high accuracy.</p>
+                    </div>
+                    <div class="card-3d value-card-3d">
+                        <h4>Continuous Growth</h4>
+                        <p>Relentlessly building hands-on technical skills across modern AI and database tools.</p>
+                    </div>
+                    <div class="card-3d value-card-3d">
+                        <h4>Practical AI & CRUD</h4>
+                        <p>Focusing on functional computer vision models and practical management software systems.</p>
+                    </div>
+                    <div class="card-3d value-card-3d">
+                        <h4>Clean Architecture</h4>
+                        <p>Writing clean, maintainable code following modern software engineering principles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 02: TECHNICAL EXPERTISE -->
+    <section id="skills" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">02 /</span>
+            <h2 class="section-title-3d">TECHNICAL EXPERTISE</h2>
+        </div>
+
+        <div class="skills-grid">
+            <!-- Programming -->
+            <div class="card-3d skill-category-card reveal">
+                <div class="skill-category-header">
+                    <h3 class="skill-category-title">PROGRAMMING</h3>
+                    <span class="mono-tag">LANGUAGES</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-3d">Python</span>
+                    <span class="skill-tag-3d">C++</span>
+                </div>
+            </div>
+
+            <!-- Data Science -->
+            <div class="card-3d skill-category-card reveal">
+                <div class="skill-category-header">
+                    <h3 class="skill-category-title">DATA SCIENCE</h3>
+                    <span class="mono-tag">ANALYTICS & STATS</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-3d">NumPy</span>
+                    <span class="skill-tag-3d">Pandas</span>
+                    <span class="skill-tag-3d">Data Analysis</span>
+                    <span class="skill-tag-3d">Data Cleaning</span>
+                    <span class="skill-tag-3d">Data Visualization</span>
+                    <span class="skill-tag-3d">Statistics</span>
+                </div>
+            </div>
+
+            <!-- ML & AI -->
+            <div class="card-3d skill-category-card reveal">
+                <div class="skill-category-header">
+                    <h3 class="skill-category-title">ML & AI</h3>
+                    <span class="mono-tag">INTELLIGENCE</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-3d">Scikit-learn</span>
+                    <span class="skill-tag-3d">Machine Learning</span>
+                    <span class="skill-tag-3d">Artificial Intelligence</span>
+                    <span class="skill-tag-3d">Computer Vision</span>
+                </div>
+            </div>
+
+            <!-- Tools & Technologies -->
+            <div class="card-3d skill-category-card reveal">
+                <div class="skill-category-header">
+                    <h3 class="skill-category-title">TOOLS & PLATFORMS</h3>
+                    <span class="mono-tag">ENVIRONMENT</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-3d">Git</span>
+                    <span class="skill-tag-3d">GitHub</span>
+                    <span class="skill-tag-3d">VS Code</span>
+                    <span class="skill-tag-3d">Jupyter Notebook</span>
+                    <span class="skill-tag-3d">Anaconda</span>
+                    <span class="skill-tag-3d">Linux</span>
+                </div>
+            </div>
+
+            <!-- Web & Databases -->
+            <div class="card-3d skill-category-card reveal">
+                <div class="skill-category-header">
+                    <h3 class="skill-category-title">WEB & DATABASES</h3>
+                    <span class="mono-tag">CRUD & FRONTEND</span>
+                </div>
+                <div class="skill-tags">
+                    <span class="skill-tag-3d">HTML5</span>
+                    <span class="skill-tag-3d">CSS3</span>
+                    <span class="skill-tag-3d">JavaScript</span>
+                    <span class="skill-tag-3d">SQL / Databases</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 03: SELECTED WORK -->
+    <section id="projects" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">03 /</span>
+            <h2 class="section-title-3d">SELECTED WORK</h2>
+        </div>
+
+        <div class="projects-wrapper">
+            <!-- PROJECT 01 -->
+            <div class="card-3d project-card-3d reveal">
+                <div class="project-info">
+                    <div>
+                        <div class="project-number">PROJECT // 01</div>
+                        <h3 class="project-title">HOMEGUARD AI</h3>
+                        <p class="project-description">
+                            An AI-powered smart departure safety assistant engineered to identify potential household safety hazards (such as un-turned-off appliances or open points of access) prior to leaving premises using computer vision.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Computer Vision</span>
+                            <span class="tech-pill">YOLO / MobileNet</span>
+                            <span class="tech-pill">Scikit-learn</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-3d btn-3d-primary open-modal-btn" data-project="0">View Details <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="project-preview-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                        </div>
+                        <div class="mockup-body">
+> INITIALIZING HOMEGUARD_AI CORE...
+> LOADING VISION MODEL... [OK]
+> SCANNING KITCHEN APPLIANCES:
+  - STATUS: Stove Burner #2 [WARNING: ACTIVE]
+  - PRIORITY: HIGH
+> GENERATING SMART DEPARTURE ALERT...
+> STATUS: RULE ENGINE DISPATCH SENT.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 02 -->
+            <div class="card-3d project-card-3d reveal">
+                <div class="project-info">
+                    <div>
+                        <div class="project-number">PROJECT // 02</div>
+                        <h3 class="project-title">SHAH BUSINESS EMPIRE</h3>
+                        <p class="project-description">
+                            A business management and web development project designed for tracking operational records, inventory management, and client inquiry workflows via clean backend scripts and dynamic UI components.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">Flask</span>
+                            <span class="tech-pill">HTML / CSS / JS</span>
+                            <span class="tech-pill">Database</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-3d btn-3d-primary open-modal-btn" data-project="1">View Details <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="project-preview-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                        </div>
+                        <div class="mockup-body">
+> CONNECTING TO PLATFORM DATABASE...
+> FETCHING OPERATIONS METRICS:
+  - Inventory Sync: 100%
+  - Customer Inquiry Portal: Active
+  - Server Response: 18ms
+> ALL SYSTEMS ONLINE.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROJECT 03 (UPDATED: STUDENT ENTRY RECORD SYSTEM) -->
+            <div class="card-3d project-card-3d reveal">
+                <div class="project-info">
+                    <div>
+                        <div class="project-number">PROJECT // 03</div>
+                        <h3 class="project-title">STUDENT ENTRY RECORD SYSTEM</h3>
+                        <p class="project-description">
+                            A comprehensive student record management software system built to streamline academic admissions, enrollment tracking, grade management, and student query execution through clean database integration and structured user management logic.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-pill">Python</span>
+                            <span class="tech-pill">SQL / Database</span>
+                            <span class="tech-pill">CRUD Operations</span>
+                            <span class="tech-pill">Data Management</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn-3d btn-3d-primary open-modal-btn" data-project="2">View Details <i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+                    </div>
+                </div>
+                <div class="project-visual">
+                    <div class="project-preview-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                        </div>
+                        <div class="mockup-body">
+> CONNECTING TO STUDENT_RECORDS_DB...
+> EXECUTING CRUD ACTION: [NEW ENTRY]
+  - ID: 2026-DS-084
+  - NAME: Syed Shabi ul Hassan
+  - DEPT: BS Data Science
+  - ENROLLMENT STATUS: Verified [OK]
+> DATABASE SYNC COMPLETED SUCCESSFULLY.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 04: EDUCATION -->
+    <section id="education" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">04 /</span>
+            <h2 class="section-title-3d">EDUCATION</h2>
+        </div>
+
+        <div class="timeline-3d reveal">
+            <div class="card-3d timeline-item-3d">
+                <div class="timeline-date">UNDERGRADUATE DEGREE // CURRENTLY ENROLLED</div>
+                <h3 class="timeline-degree">BACHELOR OF SCIENCE IN DATA SCIENCE</h3>
+                <div class="timeline-institution">
+                    Pakistan-Austria Fachhochschule: Institute of Applied Sciences and Technology (PAF-IAST)
+                </div>
+                <p style="color: var(--text-secondary);">
+                    Comprehensive academic curriculum covering computational data analysis, programming methodologies, applied statistics, machine learning principles, and database management systems.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 05: CERTIFICATIONS -->
+    <section id="certifications" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">05 /</span>
+            <h2 class="section-title-3d">CERTIFICATIONS & LEARNING</h2>
+        </div>
+
+        <div class="cert-grid">
+            <div class="card-3d cert-card-3d reveal">
+                <div>
+                    <div class="cert-provider">SIMPLILEARN</div>
+                    <h3 class="cert-title">Introduction to C++ Programming</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Foundational programming certification covering memory allocation, control statements, object-oriented concepts, and algorithmic execution in C++.
+                    </p>
+                </div>
+                <div class="cert-meta">
+                    <span>COMPLETION: DEC 21, 2025</span>
+                    <span>DURATION: 6 HOURS</span>
+                </div>
+            </div>
+
+            <div class="card-3d cert-card-3d reveal">
+                <div>
+                    <div class="cert-provider">ACADEMIC & SELF-PACED</div>
+                    <h3 class="cert-title">Python Data Science Foundations</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Self-directed study and coursework focused on numerical computing with NumPy, data frame operations with Pandas, and machine learning pipelines with Scikit-learn.
+                    </p>
+                </div>
+                <div class="cert-meta">
+                    <span>STATUS: ACTIVE</span>
+                    <span>FOCUS: DATA & ML</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 06: LEARNING JOURNEY -->
+    <section id="journey" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">06 /</span>
+            <h2 class="section-title-3d">MY LEARNING JOURNEY</h2>
+        </div>
+
+        <div class="journey-grid">
+            <div class="card-3d journey-card-3d reveal">
+                <div class="journey-step">01</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Academic Foundation</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Building mathematical, statistical, and data science concepts at PAF-IAST.
+                </p>
+            </div>
+
+            <div class="card-3d journey-card-3d reveal">
+                <div class="journey-step">02</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Programming Practice</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Mastering core software logic, algorithms, and data structures in Python and C++.
+                </p>
+            </div>
+
+            <div class="card-3d journey-card-3d reveal">
+                <div class="journey-step">03</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Practical Projects</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Engineering HomeGuard AI, Shah Business Empire, and Student Entry Record Systems.
+                </p>
+            </div>
+
+            <div class="card-3d journey-card-3d reveal">
+                <div class="journey-step">04</div>
+                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-primary);">Advanced Machine Learning</h4>
+                <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                    Expanding skills in deep learning frameworks, computer vision models, and data pipelines.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 07: CONTACT SECTION -->
+    <section id="contact" class="container">
+        <div class="section-header reveal">
+            <span class="section-number">07 /</span>
+            <h2 class="section-title-3d">LET'S CONNECT</h2>
+        </div>
+
+        <div class="contact-grid">
+            <div class="reveal">
+                <h3 style="font-size: 1.85rem; font-family: var(--font-head); margin-bottom: 1rem;">
+                    HAVE AN IDEA, OPPORTUNITY, OR PROJECT IN MIND?
+                </h3>
+                <p style="color: var(--text-secondary); line-height: 1.8;">
+                    I am always interested in connecting with mentors, data science professionals, and exploring project or research opportunities.
+                </p>
+
+                <div class="contact-info-list">
+                    <div class="contact-info-item">
+                        <h5>EMAIL ADDRESS</h5>
+                        <a href="mailto:syedshabiulhassan54@gmail.com">syedshabiulhassan54@gmail.com</a>
+                    </div>
+                    <div class="contact-info-item">
+                        <h5>CAMPUS LOCATION</h5>
+                        <p>Pakistan (PAF-IAST Campus)</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h5>DIRECT SOCIAL & CHAT CHANNELS</h5>
+                        <div class="social-badges-wrapper" style="margin-top: 0.6rem;">
+                            <a href="https://www.linkedin.com/in/syed-shabi-ul-hassan-0717543ab/" target="_blank" rel="noopener noreferrer" class="social-logo-btn linkedin">
+                                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                            </a>
+                            <a href="https://github.com/syedshabiulh54-source" target="_blank" rel="noopener noreferrer" class="social-logo-btn github">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="https://wa.me/923000000000?text=Hi%20Syed%20Shabi,%20I%20saw%20your%20portfolio!" target="_blank" rel="noopener noreferrer" class="social-logo-btn whatsapp">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </a>
+                            <a href="mailto:syedshabiulhassan54@gmail.com" class="social-logo-btn gmail">
+                                <i class="fa-solid fa-envelope"></i> Gmail
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Validated Contact Form -->
+            <div class="reveal">
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="form-group">
+                        <label class="form-label" for="form-name">FULL NAME *</label>
+                        <input type="text" id="form-name" class="form-input" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="form-email">EMAIL ADDRESS *</label>
+                        <input type="email" id="form-email" class="form-input" placeholder="yourname@domain.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="form-subject">SUBJECT *</label>
+                        <input type="text" id="form-subject" class="form-input" placeholder="Opportunity / Project Inquiry" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="form-message">MESSAGE *</label>
+                        <textarea id="form-message" class="form-textarea" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <div id="form-status" class="form-status"></div>
+
+                    <button type="submit" class="btn-3d btn-3d-primary" style="width: 100%;">
+                        Send Message <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>SYED SHABI UL HASSAN.</h2>
+                    <p>ASPIRING DATA SCIENTIST & BS DATA SCIENCE STUDENT</p>
+                </div>
+                <div>
+                    <ul class="footer-nav">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li><a href="#skills" class="nav-link">Skills</a></li>
+                        <li><a href="#projects" class="nav-link">Projects</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    &copy; <span id="current-year"></span> SYED SHABI UL HASSAN. "Designed with purpose. Built with curiosity."
+                </div>
+                <button class="btn-3d btn-3d-outline" id="back-to-top" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                    BACK TO TOP <i class="fa-solid fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CASE STUDY MODAL -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content-3d">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="mono-tag" id="modal-project-number" style="margin-bottom: 0.8rem; display:inline-block;">PROJECT // 01</div>
+            <h2 id="modal-project-title" style="font-size: 2.2rem; font-family: var(--font-head); margin-bottom: 1rem; background: var(--grad-text-3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Project Title</h2>
+            <div id="modal-project-tech" style="margin-bottom: 1.5rem;" class="project-tech-stack"></div>
+            <div id="modal-project-body" style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                Detailed explanation...
+            </div>
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-light); display: flex; gap: 1rem;">
+                <a href="https://github.com/syedshabiulh54-source" target="_blank" rel="noopener noreferrer" class="btn-3d btn-3d-primary">
+                    <i class="fa-brands fa-github"></i> View GitHub Repository
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. DYNAMIC YEAR
+            const yearElem = document.getElementById('current-year');
+            if (yearElem) {
+                yearElem.textContent = new Date().getFullYear();
+            }
+
+            // 2. THEME SWITCHER
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const htmlElement = document.documentElement;
+            const themeIcon = themeToggleBtn.querySelector('i');
+
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (htmlElement.classList.contains('light')) {
+                    htmlElement.classList.remove('light');
+                    htmlElement.classList.add('dark');
+                    themeIcon.className = 'fa-solid fa-sun';
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    htmlElement.classList.remove('dark');
+                    htmlElement.classList.add('light');
+                    themeIcon.className = 'fa-solid fa-moon';
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // 3. MOBILE MENU
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+
+            // 4. ACTIVE NAVIGATION LINK ON SCROLL
+            const sections = document.querySelectorAll('section');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const scrollPos = window.pageYOffset + 160;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // 5. INTERSECTION OBSERVER REVEAL ANIMATIONS
+            const revealElements = document.querySelectorAll('.reveal');
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 6. BACK TO TOP BUTTON
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // 7. CV DOWNLOAD SIMULATION
+            const downloadCvBtn = document.getElementById('download-cv-btn');
+            if (downloadCvBtn) {
+                downloadCvBtn.addEventListener('click', () => {
+                    const notification = document.createElement('div');
+                    notification.style.position = 'fixed';
+                    notification.style.bottom = '25px';
+                    notification.style.right = '25px';
+                    notification.style.backgroundColor = 'var(--bg-secondary)';
+                    notification.style.color = 'var(--text-primary)';
+                    notification.style.border = '1px solid var(--cyan-accent)';
+                    notification.style.borderRadius = '12px';
+                    notification.style.padding = '1rem 1.6rem';
+                    notification.style.fontFamily = 'var(--font-mono)';
+                    notification.style.fontSize = '0.88rem';
+                    notification.style.boxShadow = '0 10px 30px rgba(6, 182, 212, 0.3)';
+                    notification.style.zIndex = '3000';
+                    notification.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--cyan-accent); margin-right:8px;"></i> Accessing CV for Syed Shabi ul Hassan...`;
+
+                    document.body.appendChild(notification);
+
+                    setTimeout(() => {
+                        notification.remove();
+                        window.location.href = "mailto:syedshabiulhassan54@gmail.com?subject=CV%20Request%20-%20Syed%20Shabi%20ul%20Hassan";
+                    }, 1800);
+                });
+            }
+
+            // 8. CONTACT FORM VALIDATION & MAILTO DISPATCH
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const name = document.getElementById('form-name').value.trim();
+                    const email = document.getElementById('form-email').value.trim();
+                    const subject = document.getElementById('form-subject').value.trim();
+                    const message = document.getElementById('form-message').value.trim();
+
+                    if (!name || !email || !subject || !message) {
+                        formStatus.className = 'form-status error';
+                        formStatus.textContent = 'ERROR: Please complete all required fields.';
+                        return;
+                    }
+
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email)) {
+                        formStatus.className = 'form-status error';
+                        formStatus.textContent = 'ERROR: Please enter a valid email address.';
+                        return;
+                    }
+
+                    formStatus.className = 'form-status success';
+                    formStatus.textContent = 'SUCCESS: Opening your mail client to send message...';
+
+                    const mailtoUrl = `mailto:syedshabiulhassan54@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\nMessage:\n" + message)}`;
+                    
+                    setTimeout(() => {
+                        window.location.href = mailtoUrl;
+                        contactForm.reset();
+                    }, 1200);
+                });
+            }
+
+            // 9. PROJECT CASE STUDY MODAL DATA & HANDLERS
+            const projectsData = [
+                {
+                    number: "PROJECT // 01",
+                    title: "HOMEGUARD AI — Smart Departure Assistant",
+                    tech: ["Python", "Computer Vision", "YOLO / MobileNet", "Scikit-learn"],
+                    details: `
+                        <p style="margin-bottom: 1rem;"><strong>Overview:</strong> HomeGuard AI is an intelligent visual assistant designed to detect household safety risks prior to departure.</p>
+                        <p style="margin-bottom: 1rem;"><strong>Approach:</strong> Engineered with Python and computer vision techniques to monitor hazard areas (stoves, windows, appliances) and evaluate risks using a priority rule engine.</p>
+                    `
+                },
+                {
+                    number: "PROJECT // 02",
+                    title: "SHAH BUSINESS EMPIRE — Operations Platform",
+                    tech: ["Python", "Flask", "HTML / CSS / JS", "Database"],
+                    details: `
+                        <p style="margin-bottom: 1rem;"><strong>Overview:</strong> A customized management platform built for tracking business operations, inventory records, and user queries.</p>
+                        <p style="margin-bottom: 1rem;"><strong>Implementation:</strong> Utilizes Python Flask for backend routes and interactive frontend components for efficient record rendering.</p>
+                    `
+                },
+                {
+                    number: "PROJECT // 03",
+                    title: "STUDENT ENTRY RECORD SYSTEM",
+                    tech: ["Python", "SQL / Database", "CRUD Operations", "Data Management"],
+                    details: `
+                        <p style="margin-bottom: 1rem;"><strong>Overview:</strong> A structured data management system built for student admissions, registration records, and academic data administration.</p>
+                        <p style="margin-bottom: 1rem;"><strong>Features:</strong> Provides full Create, Read, Update, and Delete (CRUD) operations, data query filtering, and automated database record sync for institutional student administration.</p>
+                    `
+                }
+            ];
+
+            const modal = document.getElementById('project-modal');
+            const modalCloseBtn = document.getElementById('modal-close');
+            const openModalBtns = document.querySelectorAll('.open-modal-btn');
+
+            const modalNumber = document.getElementById('modal-project-number');
+            const modalTitle = document.getElementById('modal-project-title');
+            const modalTech = document.getElementById('modal-project-tech');
+            const modalBody = document.getElementById('modal-project-body');
+
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const idx = e.target.closest('.open-modal-btn').getAttribute('data-project');
+                    const data = projectsData[idx];
+
+                    if (data) {
+                        modalNumber.textContent = data.number;
+                        modalTitle.textContent = data.title;
+                        modalBody.innerHTML = data.details;
+
+                        modalTech.innerHTML = data.tech.map(t => `<span class="tech-pill">${t}</span>`).join('');
+
+                        modal.classList.add('active');
+                    }
+                });
+            });
+
+            if (modalCloseBtn) {
+                modalCloseBtn.addEventListener('click', () => {
+                    modal.classList.remove('active');
+                });
+            }
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+
+        });
+    </script>
+</body>
+</html>
